@@ -1,6 +1,6 @@
 /*
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solution/
-This one I was not able to quite solve. But here is the solution with comments
+This one I was not able to quite solve. But here is the solution (brute force) with comments
 */
 
 public class Solution {
