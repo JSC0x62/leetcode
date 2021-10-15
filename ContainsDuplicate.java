@@ -26,4 +26,17 @@ class Solution {
     }
     return false;
 }
+    
+  /*
+  A really simple O(N) solution. My first solution is faster but this one is simpler and still fast.
+  */
+  public boolean containsDuplicateSimple(int[] nums) {
+       Set<Integer> set = new HashSet<>();
+        for(int i : nums){
+            if(set.add(i) == false){
+                return true;
+            }
+        }
+        return false;
+    }
 }
