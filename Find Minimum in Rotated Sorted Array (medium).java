@@ -1,8 +1,8 @@
 /*
 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
 This is my solution, it gets 0ms and is 100% faster than other results.
-Its supposed to be a O log(n) solution, im not 100% sure if it meets that but is faster than a brute force approach. And obviously most other people's solutions (;
-It uses a binary search of sorts.
+Its supposed to be a O log(n) solution, this may or may not be
 */
 
 class Solution {
@@ -43,3 +43,43 @@ class Solution {
         return 0;
     }
 }
+
+/*
+Here is a log(n) solution
+
+import java.lang.Math;
+class Solution {
+    public int findMin(int[] nums) {
+        //4 variables to keep track of everything (mid point is in the loop)
+        int result = nums[0];
+        int left = 0;
+        int right = nums.length - 1;
+        
+        while(left <= right){
+            //this means the array is sorted and left is going to be the smallest remaining value
+            //whatever is at result may or may not be less than the left value
+            if(nums[left] < nums[right]){
+                return result = Math.min(result, nums[left]);
+            }
+            //This is the middle point of the array
+            int mid = (left + right) / 2;
+            //Compare result with the mid point
+            result = Math.min(result, nums[mid]);
+            //if the mid value is >= the left, then the left should be shifted to the mid (+1).
+            //Because if this condition is true, then the smallest value will be to the right of the midpoint
+            if(nums[mid] >= nums[left]){
+                left = mid + 1;
+            }
+            //or else the right pointer is sfifted to the mid
+            //in this case the smallest value will be somewhere to the left of the midpoint
+            //this allows to eliminate portions of the array
+            else{
+                right = mid - 1;
+            }
+            
+        }
+        return result;
+    }
+    
+}
+*/
