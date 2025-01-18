@@ -31,12 +31,17 @@ class Solution {
   A really simple O(N) solution. My first solution is faster but this one is simpler and still fast.
   */
   public boolean containsDuplicateSimple(int[] nums) {
+       //0) use a Set to store the ints as Sets cannot contain duplicates
        Set<Integer> set = new HashSet<>();
+       //1) iterate through array
         for(int i : nums){
-            if(set.add(i) == false){
+            //2) if the set already has the element return true (contains duplicate)
+            if(!set.add(i)){
                 return true;
             }
+            //3) if not keep going
         }
+        //does not contain duplicate
         return false;
     }
 }
